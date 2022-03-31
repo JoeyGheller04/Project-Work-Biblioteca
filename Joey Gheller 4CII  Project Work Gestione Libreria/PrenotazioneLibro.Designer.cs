@@ -39,8 +39,8 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.btnFindUser = new FontAwesome.Sharp.IconButton();
             this.txbSearch = new System.Windows.Forms.TextBox();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
             this.cmbBook = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txbTitolo = new System.Windows.Forms.TextBox();
@@ -55,9 +55,9 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.txbDa = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txbA = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txbA = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -75,12 +75,11 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.btnAddPrenotation.FlatAppearance.BorderSize = 0;
             this.btnAddPrenotation.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnAddPrenotation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddPrenotation.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPrenotation.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddPrenotation.ForeColor = System.Drawing.Color.White;
             this.btnAddPrenotation.IconChar = FontAwesome.Sharp.IconChar.Plus;
             this.btnAddPrenotation.IconColor = System.Drawing.Color.White;
             this.btnAddPrenotation.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAddPrenotation.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnAddPrenotation.Location = new System.Drawing.Point(628, 444);
             this.btnAddPrenotation.Name = "btnAddPrenotation";
             this.btnAddPrenotation.Size = new System.Drawing.Size(312, 57);
@@ -103,10 +102,11 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             // 
             // cmbUser
             // 
+            this.cmbUser.Font = new System.Drawing.Font("Verdana", 14.25F);
             this.cmbUser.FormattingEnabled = true;
             this.cmbUser.Location = new System.Drawing.Point(81, 14);
             this.cmbUser.Name = "cmbUser";
-            this.cmbUser.Size = new System.Drawing.Size(169, 31);
+            this.cmbUser.Size = new System.Drawing.Size(402, 31);
             this.cmbUser.TabIndex = 1;
             // 
             // label1
@@ -132,6 +132,8 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.btnLogout.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.btnLogout.IconColor = System.Drawing.Color.White;
             this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLogout.IconSize = 64;
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLogout.Location = new System.Drawing.Point(953, 10);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(10);
             this.btnLogout.Name = "btnLogout";
@@ -167,13 +169,14 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.btnFindBook.IconColor = System.Drawing.Color.White;
             this.btnFindBook.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnFindBook.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFindBook.Location = new System.Drawing.Point(17, 169);
+            this.btnFindBook.Location = new System.Drawing.Point(154, 166);
             this.btnFindBook.Name = "btnFindBook";
-            this.btnFindBook.Size = new System.Drawing.Size(278, 68);
+            this.btnFindBook.Size = new System.Drawing.Size(300, 68);
             this.btnFindBook.TabIndex = 9;
             this.btnFindBook.Text = "Trova Libro";
             this.btnFindBook.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFindBook.UseVisualStyleBackColor = false;
+            this.btnFindBook.Click += new System.EventHandler(this.btnFindBook_Click);
             // 
             // btnFindUser
             // 
@@ -187,33 +190,43 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.btnFindUser.IconColor = System.Drawing.Color.White;
             this.btnFindUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnFindUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFindUser.Location = new System.Drawing.Point(17, 95);
+            this.btnFindUser.Location = new System.Drawing.Point(154, 92);
             this.btnFindUser.Name = "btnFindUser";
-            this.btnFindUser.Size = new System.Drawing.Size(278, 68);
+            this.btnFindUser.Size = new System.Drawing.Size(300, 68);
             this.btnFindUser.TabIndex = 8;
             this.btnFindUser.Text = "Trova Utente";
             this.btnFindUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFindUser.UseVisualStyleBackColor = false;
+            this.btnFindUser.Click += new System.EventHandler(this.btnFindUser_Click);
             // 
             // txbSearch
             // 
             this.txbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbSearch.Location = new System.Drawing.Point(17, 49);
+            this.txbSearch.Location = new System.Drawing.Point(6, 39);
             this.txbSearch.Name = "txbSearch";
-            this.txbSearch.Size = new System.Drawing.Size(278, 31);
+            this.txbSearch.Size = new System.Drawing.Size(300, 31);
             this.txbSearch.TabIndex = 1;
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.label12);
             this.panel12.Controls.Add(this.cmbBook);
+            this.panel12.Controls.Add(this.label12);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(342, 129);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(280, 57);
             this.panel12.TabIndex = 16;
+            // 
+            // cmbBook
+            // 
+            this.cmbBook.Font = new System.Drawing.Font("Verdana", 14.25F);
+            this.cmbBook.FormattingEnabled = true;
+            this.cmbBook.Location = new System.Drawing.Point(68, 14);
+            this.cmbBook.Name = "cmbBook";
+            this.cmbBook.Size = new System.Drawing.Size(402, 31);
+            this.cmbBook.TabIndex = 1;
             // 
             // label12
             // 
@@ -225,15 +238,6 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.label12.Size = new System.Drawing.Size(59, 23);
             this.label12.TabIndex = 0;
             this.label12.Text = "Libro";
-            // 
-            // cmbBook
-            // 
-            this.cmbBook.Font = new System.Drawing.Font("Verdana", 14.25F);
-            this.cmbBook.FormattingEnabled = true;
-            this.cmbBook.Location = new System.Drawing.Point(68, 14);
-            this.cmbBook.Name = "cmbBook";
-            this.cmbBook.Size = new System.Drawing.Size(182, 31);
-            this.cmbBook.TabIndex = 1;
             // 
             // groupBox2
             // 
@@ -266,7 +270,7 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.txbTitolo.Location = new System.Drawing.Point(84, 92);
             this.txbTitolo.Name = "txbTitolo";
             this.txbTitolo.ReadOnly = true;
-            this.txbTitolo.Size = new System.Drawing.Size(166, 31);
+            this.txbTitolo.Size = new System.Drawing.Size(386, 31);
             this.txbTitolo.TabIndex = 5;
             // 
             // txbIsbn
@@ -274,7 +278,7 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.txbIsbn.Location = new System.Drawing.Point(84, 138);
             this.txbIsbn.Name = "txbIsbn";
             this.txbIsbn.ReadOnly = true;
-            this.txbIsbn.Size = new System.Drawing.Size(166, 31);
+            this.txbIsbn.Size = new System.Drawing.Size(386, 31);
             this.txbIsbn.TabIndex = 7;
             // 
             // label5
@@ -318,7 +322,7 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.txbCode.Location = new System.Drawing.Point(81, 138);
             this.txbCode.Name = "txbCode";
             this.txbCode.ReadOnly = true;
-            this.txbCode.Size = new System.Drawing.Size(166, 31);
+            this.txbCode.Size = new System.Drawing.Size(401, 31);
             this.txbCode.TabIndex = 3;
             // 
             // label2
@@ -336,7 +340,7 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.txbNome.Location = new System.Drawing.Point(81, 92);
             this.txbNome.Name = "txbNome";
             this.txbNome.ReadOnly = true;
-            this.txbNome.Size = new System.Drawing.Size(166, 31);
+            this.txbNome.Size = new System.Drawing.Size(401, 31);
             this.txbNome.TabIndex = 0;
             // 
             // panel2
@@ -352,9 +356,10 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             // 
             // txbDa
             // 
+            this.txbDa.Enabled = false;
             this.txbDa.Location = new System.Drawing.Point(80, 11);
             this.txbDa.Name = "txbDa";
-            this.txbDa.Size = new System.Drawing.Size(200, 31);
+            this.txbDa.Size = new System.Drawing.Size(402, 31);
             this.txbDa.TabIndex = 1;
             // 
             // label6
@@ -377,14 +382,6 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(280, 57);
             this.panel3.TabIndex = 21;
-            // 
-            // txbA
-            // 
-            this.txbA.Location = new System.Drawing.Point(84, 11);
-            this.txbA.Name = "txbA";
-            this.txbA.ReadOnly = true;
-            this.txbA.Size = new System.Drawing.Size(166, 31);
-            this.txbA.TabIndex = 4;
             // 
             // label7
             // 
@@ -424,6 +421,14 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1051, 632);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // txbA
+            // 
+            this.txbA.Enabled = false;
+            this.txbA.Location = new System.Drawing.Point(84, 11);
+            this.txbA.Name = "txbA";
+            this.txbA.Size = new System.Drawing.Size(386, 31);
+            this.txbA.TabIndex = 2;
             // 
             // PrenotazioneLibro
             // 
@@ -482,6 +487,6 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DateTimePicker txbDa;
-        private System.Windows.Forms.TextBox txbA;
+        private System.Windows.Forms.DateTimePicker txbA;
     }
 }

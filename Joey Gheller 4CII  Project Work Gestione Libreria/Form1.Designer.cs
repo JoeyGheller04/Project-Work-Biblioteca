@@ -29,9 +29,14 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
         /// </summary>
         private void InitializeComponent()
         {
-            this.login = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Login();
-            this.prenotazione = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.PrenotazioneLibro();
-            this.tabPrincipale = new System.Windows.Forms.TableLayoutPanel();
+            Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Utente utente5 = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Utente();
+            Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Libro libro3 = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Libro();
+            Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Utente utente6 = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Utente();
+            Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Libro libro4 = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Libro();
+            Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Utente utente7 = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Utente();
+            Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Utente utente8 = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Utente();
+            this.Profilo = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.ProfiloUtente();
+            this.ViewSelectedBook = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.ViewBook();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnFind = new FontAwesome.Sharp.IconButton();
@@ -41,14 +46,17 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.btnLibri = new FontAwesome.Sharp.IconButton();
             this.btnUtenti = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tabComandi = new System.Windows.Forms.TableLayoutPanel();
-            this.btnRemovePrenota = new FontAwesome.Sharp.IconButton();
-            this.btnPrenota = new FontAwesome.Sharp.IconButton();
-            this.btnRemoveBook = new FontAwesome.Sharp.IconButton();
-            this.btnRemoveUser = new FontAwesome.Sharp.IconButton();
-            this.tabAccount = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLogout = new FontAwesome.Sharp.IconButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnStats = new FontAwesome.Sharp.IconButton();
+            this.btnViewBook = new FontAwesome.Sharp.IconButton();
+            this.btnLogOut = new FontAwesome.Sharp.IconButton();
             this.btnViewUser = new FontAwesome.Sharp.IconButton();
+            this.tabComandi = new System.Windows.Forms.TableLayoutPanel();
+            this.btnModify = new FontAwesome.Sharp.IconButton();
+            this.btnAdd = new FontAwesome.Sharp.IconButton();
+            this.btnPrenota = new FontAwesome.Sharp.IconButton();
+            this.btnRating = new FontAwesome.Sharp.IconButton();
+            this.btnRemove = new FontAwesome.Sharp.IconButton();
             this.tbc = new System.Windows.Forms.TabControl();
             this.tbpUtenti = new System.Windows.Forms.TabPage();
             this.dgwUtenti = new System.Windows.Forms.DataGridView();
@@ -57,6 +65,7 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.columnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnCity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNLibri = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnPwd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,13 +87,22 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.columnDataInizio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnDataFine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnTempoMancante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPrincipale.SuspendLayout();
+            this.columnCodicePrestito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPrincipale = new System.Windows.Forms.TableLayoutPanel();
+            this.ValutazioneEPrestiti = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.GestionePresitiValuta();
+            this.AddBooksAndUsers = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.AddBookUser();
+            this.login = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Login();
+            this.prenotazione = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.PrenotazioneLibro();
+            this.Statistiche = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.Dashboard();
+            this.ModifyBookUser = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.AddBookUser();
+            this.visualizza_libro = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.ViewBook();
+            this.visualizza_profilo = new Joey_Gheller_4CII__Project_Work_Gestione_Libreria.ProfiloUtente();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.tabComandi.SuspendLayout();
-            this.tabAccount.SuspendLayout();
             this.tbc.SuspendLayout();
             this.tbpUtenti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwUtenti)).BeginInit();
@@ -92,42 +110,30 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             ((System.ComponentModel.ISupportInitialize)(this.dgwLibri)).BeginInit();
             this.tbpPrestiti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwPrestiti)).BeginInit();
+            this.tabPrincipale.SuspendLayout();
             this.SuspendLayout();
             // 
-            // login
+            // Profilo
             // 
-            this.login.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.login.Location = new System.Drawing.Point(0, 0);
-            this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(1251, 996);
-            this.login.TabIndex = 4;
+            this.Profilo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            utente5.libri_prenotati = 0;
+            utente5.libri_richiesti = 0;
+            utente5.storico_prestiti = null;
+            this.Profilo.CurrentUser = utente5;
+            this.Profilo.Location = new System.Drawing.Point(1338, 21);
+            this.Profilo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.Profilo.Name = "Profilo";
+            this.Profilo.Size = new System.Drawing.Size(734, 876);
+            this.Profilo.TabIndex = 7;
             // 
-            // prenotazione
+            // ViewSelectedBook
             // 
-            this.prenotazione.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.prenotazione.Dictionary_Libri = null;
-            this.prenotazione.Dictionary_Utenti = null;
-            this.prenotazione.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.prenotazione.Location = new System.Drawing.Point(0, 0);
-            this.prenotazione.Name = "prenotazione";
-            this.prenotazione.Size = new System.Drawing.Size(1251, 996);
-            this.prenotazione.TabIndex = 5;
-            // 
-            // tabPrincipale
-            // 
-            this.tabPrincipale.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tabPrincipale.ColumnCount = 2;
-            this.tabPrincipale.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tabPrincipale.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tabPrincipale.Controls.Add(this.panel1, 0, 0);
-            this.tabPrincipale.Controls.Add(this.tableLayoutPanel2, 1, 0);
-            this.tabPrincipale.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabPrincipale.Location = new System.Drawing.Point(0, 0);
-            this.tabPrincipale.Name = "tabPrincipale";
-            this.tabPrincipale.RowCount = 1;
-            this.tabPrincipale.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tabPrincipale.Size = new System.Drawing.Size(1251, 996);
-            this.tabPrincipale.TabIndex = 6;
+            this.ViewSelectedBook.Book = null;
+            this.ViewSelectedBook.Location = new System.Drawing.Point(1338, 21);
+            this.ViewSelectedBook.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.ViewSelectedBook.Name = "ViewSelectedBook";
+            this.ViewSelectedBook.Size = new System.Drawing.Size(734, 927);
+            this.ViewSelectedBook.TabIndex = 10;
             // 
             // panel1
             // 
@@ -140,7 +146,7 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(181, 990);
+            this.panel1.Size = new System.Drawing.Size(138, 594);
             this.panel1.TabIndex = 4;
             // 
             // groupBox1
@@ -151,7 +157,7 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox1.Location = new System.Drawing.Point(14, 379);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(227, 177);
+            this.groupBox1.Size = new System.Drawing.Size(227, 184);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ricerca";
@@ -172,7 +178,8 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(193, 68);
             this.btnFind.TabIndex = 8;
-            this.btnFind.Text = "Find";
+            this.btnFind.Text = "Trova";
+            this.btnFind.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFind.UseVisualStyleBackColor = false;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
@@ -186,14 +193,13 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.txbSearch.Name = "txbSearch";
             this.txbSearch.Size = new System.Drawing.Size(193, 31);
             this.txbSearch.TabIndex = 1;
+            this.txbSearch.TextChanged += new System.EventHandler(this.TxbSearch_TextChanged);
             // 
             // iconPictureBox1
             // 
             this.iconPictureBox1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.iconPictureBox1.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
-            this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
-            this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.DAndD;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 142;
             this.iconPictureBox1.Location = new System.Drawing.Point(14, 9);
@@ -269,180 +275,120 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tabComandi, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tabAccount, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tbc, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(190, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(147, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1058, 990);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(812, 594);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
-            // tabComandi
+            // tableLayoutPanel1
             // 
-            this.tabComandi.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tabComandi.ColumnCount = 9;
-            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tabComandi.Controls.Add(this.btnRemovePrenota, 7, 1);
-            this.tabComandi.Controls.Add(this.btnPrenota, 5, 1);
-            this.tabComandi.Controls.Add(this.btnRemoveBook, 3, 1);
-            this.tabComandi.Controls.Add(this.btnRemoveUser, 1, 1);
-            this.tabComandi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabComandi.Location = new System.Drawing.Point(3, 151);
-            this.tabComandi.Name = "tabComandi";
-            this.tabComandi.RowCount = 3;
-            this.tabComandi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tabComandi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabComandi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tabComandi.Size = new System.Drawing.Size(1052, 142);
-            this.tabComandi.TabIndex = 10;
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tableLayoutPanel1.ColumnCount = 11;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.040404F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.15152F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.040404F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.15152F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.040404F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.15152F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.040404F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.15152F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.040404F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.15152F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.040404F));
+            this.tableLayoutPanel1.Controls.Add(this.btnStats, 5, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnViewBook, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnLogOut, 9, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnViewUser, 1, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(806, 83);
+            this.tableLayoutPanel1.TabIndex = 11;
             // 
-            // btnRemovePrenota
+            // btnStats
             // 
-            this.btnRemovePrenota.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnRemovePrenota.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRemovePrenota.FlatAppearance.BorderSize = 0;
-            this.btnRemovePrenota.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnRemovePrenota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemovePrenota.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemovePrenota.ForeColor = System.Drawing.Color.White;
-            this.btnRemovePrenota.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            this.btnRemovePrenota.IconColor = System.Drawing.Color.White;
-            this.btnRemovePrenota.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRemovePrenota.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemovePrenota.Location = new System.Drawing.Point(810, 38);
-            this.btnRemovePrenota.Name = "btnRemovePrenota";
-            this.btnRemovePrenota.Size = new System.Drawing.Size(151, 65);
-            this.btnRemovePrenota.TabIndex = 22;
-            this.btnRemovePrenota.Text = "Rimuovi Prenota";
-            this.btnRemovePrenota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRemovePrenota.UseVisualStyleBackColor = false;
+            this.btnStats.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnStats.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnStats.FlatAppearance.BorderSize = 0;
+            this.btnStats.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnStats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStats.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStats.ForeColor = System.Drawing.Color.White;
+            this.btnStats.IconChar = FontAwesome.Sharp.IconChar.Signal;
+            this.btnStats.IconColor = System.Drawing.Color.White;
+            this.btnStats.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnStats.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStats.Location = new System.Drawing.Point(343, 23);
+            this.btnStats.Name = "btnStats";
+            this.btnStats.Size = new System.Drawing.Size(116, 35);
+            this.btnStats.TabIndex = 27;
+            this.btnStats.Text = "Statistiche";
+            this.btnStats.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStats.UseVisualStyleBackColor = false;
+            this.btnStats.Click += new System.EventHandler(this.btnStats_Click);
             // 
-            // btnPrenota
+            // btnViewBook
             // 
-            this.btnPrenota.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnPrenota.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPrenota.FlatAppearance.BorderSize = 0;
-            this.btnPrenota.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnPrenota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrenota.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrenota.ForeColor = System.Drawing.Color.White;
-            this.btnPrenota.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            this.btnPrenota.IconColor = System.Drawing.Color.White;
-            this.btnPrenota.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrenota.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrenota.Location = new System.Drawing.Point(569, 38);
-            this.btnPrenota.Name = "btnPrenota";
-            this.btnPrenota.Size = new System.Drawing.Size(151, 65);
-            this.btnPrenota.TabIndex = 20;
-            this.btnPrenota.Text = "Prenota Libro";
-            this.btnPrenota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPrenota.UseVisualStyleBackColor = false;
-            this.btnPrenota.Click += new System.EventHandler(this.btnPrenota_Click);
+            this.btnViewBook.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnViewBook.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnViewBook.FlatAppearance.BorderSize = 0;
+            this.btnViewBook.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnViewBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewBook.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewBook.ForeColor = System.Drawing.Color.White;
+            this.btnViewBook.IconChar = FontAwesome.Sharp.IconChar.Book;
+            this.btnViewBook.IconColor = System.Drawing.Color.White;
+            this.btnViewBook.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnViewBook.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewBook.Location = new System.Drawing.Point(189, 23);
+            this.btnViewBook.Name = "btnViewBook";
+            this.btnViewBook.Size = new System.Drawing.Size(116, 35);
+            this.btnViewBook.TabIndex = 26;
+            this.btnViewBook.Text = "Libro";
+            this.btnViewBook.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnViewBook.UseVisualStyleBackColor = false;
+            this.btnViewBook.Click += new System.EventHandler(this.BtnViewBook_Click);
             // 
-            // btnRemoveBook
+            // btnLogOut
             // 
-            this.btnRemoveBook.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnRemoveBook.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRemoveBook.FlatAppearance.BorderSize = 0;
-            this.btnRemoveBook.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnRemoveBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveBook.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveBook.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveBook.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            this.btnRemoveBook.IconColor = System.Drawing.Color.White;
-            this.btnRemoveBook.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRemoveBook.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveBook.Location = new System.Drawing.Point(328, 38);
-            this.btnRemoveBook.Name = "btnRemoveBook";
-            this.btnRemoveBook.Size = new System.Drawing.Size(151, 65);
-            this.btnRemoveBook.TabIndex = 18;
-            this.btnRemoveBook.Text = "Rimuovi Libro";
-            this.btnRemoveBook.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRemoveBook.UseVisualStyleBackColor = false;
-            // 
-            // btnRemoveUser
-            // 
-            this.btnRemoveUser.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnRemoveUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRemoveUser.FlatAppearance.BorderSize = 0;
-            this.btnRemoveUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnRemoveUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveUser.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveUser.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveUser.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            this.btnRemoveUser.IconColor = System.Drawing.Color.White;
-            this.btnRemoveUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRemoveUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveUser.Location = new System.Drawing.Point(87, 38);
-            this.btnRemoveUser.Name = "btnRemoveUser";
-            this.btnRemoveUser.Size = new System.Drawing.Size(151, 65);
-            this.btnRemoveUser.TabIndex = 16;
-            this.btnRemoveUser.Text = "Rimuovi Utente";
-            this.btnRemoveUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRemoveUser.UseVisualStyleBackColor = false;
-            // 
-            // tabAccount
-            // 
-            this.tabAccount.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tabAccount.ColumnCount = 9;
-            this.tabAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tabAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tabAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tabAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tabAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tabAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tabAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tabAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tabAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tabAccount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tabAccount.Controls.Add(this.btnLogout, 3, 1);
-            this.tabAccount.Controls.Add(this.btnViewUser, 1, 1);
-            this.tabAccount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabAccount.Location = new System.Drawing.Point(3, 3);
-            this.tabAccount.Name = "tabAccount";
-            this.tabAccount.RowCount = 3;
-            this.tabAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tabAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tabAccount.Size = new System.Drawing.Size(1052, 142);
-            this.tabAccount.TabIndex = 9;
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.IconChar = FontAwesome.Sharp.IconChar.UserAltSlash;
-            this.btnLogout.IconColor = System.Drawing.Color.White;
-            this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(328, 38);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(151, 65);
-            this.btnLogout.TabIndex = 5;
-            this.btnLogout.Text = "Log Out";
-            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.btnLogOut.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnLogOut.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.IconChar = FontAwesome.Sharp.IconChar.UserAltSlash;
+            this.btnLogOut.IconColor = System.Drawing.Color.White;
+            this.btnLogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(651, 23);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(116, 35);
+            this.btnLogOut.TabIndex = 25;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnViewUser
             // 
@@ -457,13 +403,157 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.btnViewUser.IconColor = System.Drawing.Color.White;
             this.btnViewUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnViewUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewUser.Location = new System.Drawing.Point(87, 38);
+            this.btnViewUser.Location = new System.Drawing.Point(35, 23);
             this.btnViewUser.Name = "btnViewUser";
-            this.btnViewUser.Size = new System.Drawing.Size(151, 65);
-            this.btnViewUser.TabIndex = 4;
+            this.btnViewUser.Size = new System.Drawing.Size(116, 35);
+            this.btnViewUser.TabIndex = 24;
             this.btnViewUser.Text = "Utente";
             this.btnViewUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnViewUser.UseVisualStyleBackColor = false;
+            this.btnViewUser.Click += new System.EventHandler(this.btnViewUser_Click);
+            // 
+            // tabComandi
+            // 
+            this.tabComandi.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabComandi.ColumnCount = 11;
+            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.040404F));
+            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.15152F));
+            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.040404F));
+            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.15152F));
+            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.040404F));
+            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.15152F));
+            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.040404F));
+            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.15152F));
+            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.040404F));
+            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.15152F));
+            this.tabComandi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.040404F));
+            this.tabComandi.Controls.Add(this.btnModify, 5, 1);
+            this.tabComandi.Controls.Add(this.btnAdd, 3, 1);
+            this.tabComandi.Controls.Add(this.btnPrenota, 9, 1);
+            this.tabComandi.Controls.Add(this.btnRating, 7, 1);
+            this.tabComandi.Controls.Add(this.btnRemove, 1, 1);
+            this.tabComandi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabComandi.Location = new System.Drawing.Point(3, 92);
+            this.tabComandi.Name = "tabComandi";
+            this.tabComandi.RowCount = 3;
+            this.tabComandi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tabComandi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tabComandi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tabComandi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tabComandi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tabComandi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tabComandi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tabComandi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tabComandi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tabComandi.Size = new System.Drawing.Size(806, 83);
+            this.tabComandi.TabIndex = 10;
+            // 
+            // btnModify
+            // 
+            this.btnModify.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnModify.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnModify.FlatAppearance.BorderSize = 0;
+            this.btnModify.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModify.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModify.ForeColor = System.Drawing.Color.White;
+            this.btnModify.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnModify.IconColor = System.Drawing.Color.White;
+            this.btnModify.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnModify.Location = new System.Drawing.Point(343, 23);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(116, 35);
+            this.btnModify.TabIndex = 24;
+            this.btnModify.Text = "Modifica";
+            this.btnModify.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnModify.UseVisualStyleBackColor = false;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnAdd.IconColor = System.Drawing.Color.White;
+            this.btnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAdd.Location = new System.Drawing.Point(189, 23);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(116, 35);
+            this.btnAdd.TabIndex = 23;
+            this.btnAdd.Text = "Aggiungi";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnPrenota
+            // 
+            this.btnPrenota.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnPrenota.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPrenota.FlatAppearance.BorderSize = 0;
+            this.btnPrenota.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnPrenota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrenota.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrenota.ForeColor = System.Drawing.Color.White;
+            this.btnPrenota.IconChar = FontAwesome.Sharp.IconChar.SignInAlt;
+            this.btnPrenota.IconColor = System.Drawing.Color.White;
+            this.btnPrenota.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrenota.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnPrenota.Location = new System.Drawing.Point(651, 23);
+            this.btnPrenota.Name = "btnPrenota";
+            this.btnPrenota.Size = new System.Drawing.Size(116, 35);
+            this.btnPrenota.TabIndex = 20;
+            this.btnPrenota.Text = "Prenota";
+            this.btnPrenota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrenota.UseVisualStyleBackColor = false;
+            this.btnPrenota.Click += new System.EventHandler(this.btnPrenota_Click);
+            // 
+            // btnRating
+            // 
+            this.btnRating.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnRating.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRating.FlatAppearance.BorderSize = 0;
+            this.btnRating.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnRating.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRating.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRating.ForeColor = System.Drawing.Color.White;
+            this.btnRating.IconChar = FontAwesome.Sharp.IconChar.ThumbsUp;
+            this.btnRating.IconColor = System.Drawing.Color.White;
+            this.btnRating.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRating.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRating.Location = new System.Drawing.Point(497, 23);
+            this.btnRating.Name = "btnRating";
+            this.btnRating.Size = new System.Drawing.Size(116, 35);
+            this.btnRating.TabIndex = 18;
+            this.btnRating.Text = "Valuta";
+            this.btnRating.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRating.UseVisualStyleBackColor = false;
+            this.btnRating.Click += new System.EventHandler(this.btnRating_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnRemove.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRemove.FlatAppearance.BorderSize = 0;
+            this.btnRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.White;
+            this.btnRemove.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
+            this.btnRemove.IconColor = System.Drawing.Color.White;
+            this.btnRemove.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRemove.Location = new System.Drawing.Point(35, 23);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(116, 35);
+            this.btnRemove.TabIndex = 16;
+            this.btnRemove.Text = "Rimuovi";
+            this.btnRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // tbc
             // 
@@ -471,10 +561,10 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.tbc.Controls.Add(this.tbpLibri);
             this.tbc.Controls.Add(this.tbpPrestiti);
             this.tbc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbc.Location = new System.Drawing.Point(3, 299);
+            this.tbc.Location = new System.Drawing.Point(3, 181);
             this.tbc.Name = "tbc";
             this.tbc.SelectedIndex = 0;
-            this.tbc.Size = new System.Drawing.Size(1052, 688);
+            this.tbc.Size = new System.Drawing.Size(806, 410);
             this.tbc.TabIndex = 6;
             // 
             // tbpUtenti
@@ -483,13 +573,15 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.tbpUtenti.Location = new System.Drawing.Point(4, 22);
             this.tbpUtenti.Name = "tbpUtenti";
             this.tbpUtenti.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpUtenti.Size = new System.Drawing.Size(1044, 662);
+            this.tbpUtenti.Size = new System.Drawing.Size(798, 384);
             this.tbpUtenti.TabIndex = 0;
             this.tbpUtenti.Text = "Utenti";
             this.tbpUtenti.UseVisualStyleBackColor = true;
             // 
             // dgwUtenti
             // 
+            this.dgwUtenti.AllowUserToResizeColumns = false;
+            this.dgwUtenti.AllowUserToResizeRows = false;
             this.dgwUtenti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgwUtenti.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgwUtenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -499,25 +591,26 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.columnEmail,
             this.columnCity,
             this.columnBirth,
+            this.columnNLibri,
             this.columnCode,
             this.columnPwd,
             this.columnRole});
             this.dgwUtenti.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgwUtenti.Location = new System.Drawing.Point(3, 3);
             this.dgwUtenti.Name = "dgwUtenti";
-            this.dgwUtenti.Size = new System.Drawing.Size(1038, 656);
+            this.dgwUtenti.Size = new System.Drawing.Size(792, 378);
             this.dgwUtenti.TabIndex = 0;
             // 
             // columnName
             // 
             this.columnName.DataPropertyName = "first_name";
-            this.columnName.HeaderText = "Name";
+            this.columnName.HeaderText = "Nome";
             this.columnName.Name = "columnName";
             // 
             // columnSurname
             // 
             this.columnSurname.DataPropertyName = "last_name";
-            this.columnSurname.HeaderText = "Surname";
+            this.columnSurname.HeaderText = "Cognome";
             this.columnSurname.Name = "columnSurname";
             // 
             // columnEmail
@@ -529,14 +622,20 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             // columnCity
             // 
             this.columnCity.DataPropertyName = "city";
-            this.columnCity.HeaderText = "City";
+            this.columnCity.HeaderText = "Città";
             this.columnCity.Name = "columnCity";
             // 
             // columnBirth
             // 
             this.columnBirth.DataPropertyName = "birth_date";
-            this.columnBirth.HeaderText = "Birth Date";
+            this.columnBirth.HeaderText = "Data Nascita";
             this.columnBirth.Name = "columnBirth";
+            // 
+            // columnNLibri
+            // 
+            this.columnNLibri.DataPropertyName = "libri_prenotati";
+            this.columnNLibri.HeaderText = "Libri Prenotati";
+            this.columnNLibri.Name = "columnNLibri";
             // 
             // columnCode
             // 
@@ -562,13 +661,15 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.tbpLibri.Location = new System.Drawing.Point(4, 22);
             this.tbpLibri.Name = "tbpLibri";
             this.tbpLibri.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpLibri.Size = new System.Drawing.Size(1044, 662);
+            this.tbpLibri.Size = new System.Drawing.Size(798, 384);
             this.tbpLibri.TabIndex = 1;
             this.tbpLibri.Text = "Libri";
             this.tbpLibri.UseVisualStyleBackColor = true;
             // 
             // dgwLibri
             // 
+            this.dgwLibri.AllowUserToResizeColumns = false;
+            this.dgwLibri.AllowUserToResizeRows = false;
             this.dgwLibri.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgwLibri.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgwLibri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -585,55 +686,55 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.dgwLibri.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgwLibri.Location = new System.Drawing.Point(3, 3);
             this.dgwLibri.Name = "dgwLibri";
-            this.dgwLibri.Size = new System.Drawing.Size(1038, 656);
+            this.dgwLibri.Size = new System.Drawing.Size(792, 378);
             this.dgwLibri.TabIndex = 1;
             // 
             // columnTitle
             // 
             this.columnTitle.DataPropertyName = "title";
-            this.columnTitle.HeaderText = "Title";
+            this.columnTitle.HeaderText = "Titolo";
             this.columnTitle.Name = "columnTitle";
             // 
             // columnSubtitle
             // 
             this.columnSubtitle.DataPropertyName = "subtitle";
-            this.columnSubtitle.HeaderText = "Subtitle";
+            this.columnSubtitle.HeaderText = "Titolo 2";
             this.columnSubtitle.Name = "columnSubtitle";
             // 
             // columnAuthors
             // 
             this.columnAuthors.DataPropertyName = "authors";
-            this.columnAuthors.HeaderText = "Authors";
+            this.columnAuthors.HeaderText = "Autori";
             this.columnAuthors.Name = "columnAuthors";
             // 
             // columnCategories
             // 
             this.columnCategories.DataPropertyName = "categories";
-            this.columnCategories.HeaderText = "Categories";
+            this.columnCategories.HeaderText = "Categorie";
             this.columnCategories.Name = "columnCategories";
             // 
             // columnPublishedyear
             // 
             this.columnPublishedyear.DataPropertyName = "published_year";
-            this.columnPublishedyear.HeaderText = "Pubblication Year";
+            this.columnPublishedyear.HeaderText = "Pubblicazione";
             this.columnPublishedyear.Name = "columnPublishedyear";
             // 
             // columnRating
             // 
             this.columnRating.DataPropertyName = "average_rating";
-            this.columnRating.HeaderText = "Rating";
+            this.columnRating.HeaderText = "Valutazione";
             this.columnRating.Name = "columnRating";
             // 
             // columnNPage
             // 
             this.columnNPage.DataPropertyName = "num_pages";
-            this.columnNPage.HeaderText = "Pages";
+            this.columnNPage.HeaderText = "Pagine";
             this.columnNPage.Name = "columnNPage";
             // 
             // columnQta
             // 
             this.columnQta.DataPropertyName = "qta";
-            this.columnQta.HeaderText = "Quantity";
+            this.columnQta.HeaderText = "Quantità";
             this.columnQta.Name = "columnQta";
             // 
             // columnIsbn
@@ -649,13 +750,15 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.tbpPrestiti.Location = new System.Drawing.Point(4, 22);
             this.tbpPrestiti.Name = "tbpPrestiti";
             this.tbpPrestiti.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpPrestiti.Size = new System.Drawing.Size(1044, 662);
+            this.tbpPrestiti.Size = new System.Drawing.Size(798, 384);
             this.tbpPrestiti.TabIndex = 2;
             this.tbpPrestiti.Text = "Prestiti";
             this.tbpPrestiti.UseVisualStyleBackColor = true;
             // 
             // dgwPrestiti
             // 
+            this.dgwPrestiti.AllowUserToResizeColumns = false;
+            this.dgwPrestiti.AllowUserToResizeRows = false;
             this.dgwPrestiti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgwPrestiti.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgwPrestiti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -664,11 +767,12 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.columnCode1,
             this.columnDataInizio,
             this.columnDataFine,
-            this.columnTempoMancante});
+            this.columnTempoMancante,
+            this.columnCodicePrestito});
             this.dgwPrestiti.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgwPrestiti.Location = new System.Drawing.Point(3, 3);
             this.dgwPrestiti.Name = "dgwPrestiti";
-            this.dgwPrestiti.Size = new System.Drawing.Size(1038, 656);
+            this.dgwPrestiti.Size = new System.Drawing.Size(792, 378);
             this.dgwPrestiti.TabIndex = 2;
             // 
             // columnIsbn1
@@ -701,28 +805,158 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.columnTempoMancante.HeaderText = "Tempo mancante";
             this.columnTempoMancante.Name = "columnTempoMancante";
             // 
+            // columnCodicePrestito
+            // 
+            this.columnCodicePrestito.DataPropertyName = "codice_prestito";
+            this.columnCodicePrestito.HeaderText = "Codice Prestito";
+            this.columnCodicePrestito.Name = "columnCodicePrestito";
+            // 
+            // tabPrincipale
+            // 
+            this.tabPrincipale.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tabPrincipale.ColumnCount = 2;
+            this.tabPrincipale.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tabPrincipale.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this.tabPrincipale.Controls.Add(this.tableLayoutPanel2, 1, 0);
+            this.tabPrincipale.Controls.Add(this.panel1, 0, 0);
+            this.tabPrincipale.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabPrincipale.Location = new System.Drawing.Point(0, 0);
+            this.tabPrincipale.Name = "tabPrincipale";
+            this.tabPrincipale.RowCount = 1;
+            this.tabPrincipale.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tabPrincipale.Size = new System.Drawing.Size(962, 600);
+            this.tabPrincipale.TabIndex = 6;
+            // 
+            // ValutazioneEPrestiti
+            // 
+            this.ValutazioneEPrestiti.Dictionary_Prestiti = null;
+            this.ValutazioneEPrestiti.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ValutazioneEPrestiti.Location = new System.Drawing.Point(0, 0);
+            this.ValutazioneEPrestiti.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.ValutazioneEPrestiti.Name = "ValutazioneEPrestiti";
+            this.ValutazioneEPrestiti.Size = new System.Drawing.Size(962, 600);
+            this.ValutazioneEPrestiti.TabIndex = 9;
+            // 
+            // AddBooksAndUsers
+            // 
+            libro3.average_rating = 0D;
+            libro3.prestati = 0D;
+            libro3.prestiti_totali = 0D;
+            libro3.qta = 0D;
+            libro3.ratings_count = 0D;
+            this.AddBooksAndUsers.Book = libro3;
+            this.AddBooksAndUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddBooksAndUsers.Location = new System.Drawing.Point(0, 0);
+            this.AddBooksAndUsers.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.AddBooksAndUsers.Name = "AddBooksAndUsers";
+            this.AddBooksAndUsers.Size = new System.Drawing.Size(962, 600);
+            this.AddBooksAndUsers.TabIndex = 8;
+            utente6.libri_prenotati = 0;
+            utente6.libri_richiesti = 0;
+            utente6.storico_prestiti = null;
+            this.AddBooksAndUsers.User = utente6;
+            // 
+            // login
+            // 
+            this.login.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.login.Location = new System.Drawing.Point(0, 0);
+            this.login.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(962, 600);
+            this.login.TabIndex = 4;
+            // 
+            // prenotazione
+            // 
+            this.prenotazione.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.prenotazione.Dictionary_Libri = null;
+            this.prenotazione.Dictionary_Utenti = null;
+            this.prenotazione.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.prenotazione.Location = new System.Drawing.Point(0, 0);
+            this.prenotazione.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.prenotazione.Name = "prenotazione";
+            this.prenotazione.Size = new System.Drawing.Size(962, 600);
+            this.prenotazione.TabIndex = 5;
+            // 
+            // Statistiche
+            // 
+            this.Statistiche.CurrentUser = null;
+            this.Statistiche.Dictionary_Libri = null;
+            this.Statistiche.Dictionary_Utenti = null;
+            this.Statistiche.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Statistiche.Location = new System.Drawing.Point(0, 0);
+            this.Statistiche.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.Statistiche.Name = "Statistiche";
+            this.Statistiche.Size = new System.Drawing.Size(962, 600);
+            this.Statistiche.TabIndex = 12;
+            // 
+            // ModifyBookUser
+            // 
+            libro4.average_rating = 0D;
+            libro4.prestati = 0D;
+            libro4.prestiti_totali = 0D;
+            libro4.qta = 0D;
+            libro4.ratings_count = 0D;
+            this.ModifyBookUser.Book = libro4;
+            this.ModifyBookUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ModifyBookUser.Location = new System.Drawing.Point(0, 0);
+            this.ModifyBookUser.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.ModifyBookUser.Name = "ModifyBookUser";
+            this.ModifyBookUser.Size = new System.Drawing.Size(962, 600);
+            this.ModifyBookUser.TabIndex = 11;
+            utente7.libri_prenotati = 0;
+            utente7.libri_richiesti = 0;
+            utente7.storico_prestiti = null;
+            this.ModifyBookUser.User = utente7;
+            // 
+            // visualizza_libro
+            // 
+            this.visualizza_libro.Book = null;
+            this.visualizza_libro.Location = new System.Drawing.Point(307, 12);
+            this.visualizza_libro.Name = "visualizza_libro";
+            this.visualizza_libro.Size = new System.Drawing.Size(397, 544);
+            this.visualizza_libro.TabIndex = 13;
+            // 
+            // visualizza_profilo
+            // 
+            this.visualizza_profilo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            utente8.libri_prenotati = 0;
+            utente8.libri_richiesti = 0;
+            utente8.storico_prestiti = null;
+            this.visualizza_profilo.CurrentUser = utente8;
+            this.visualizza_profilo.Location = new System.Drawing.Point(307, 12);
+            this.visualizza_profilo.Name = "visualizza_profilo";
+            this.visualizza_profilo.Size = new System.Drawing.Size(397, 512);
+            this.visualizza_profilo.TabIndex = 14;
+            // 
             // frm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1251, 996);
+            this.ClientSize = new System.Drawing.Size(962, 600);
             this.Controls.Add(this.tabPrincipale);
+            this.Controls.Add(this.visualizza_libro);
+            this.Controls.Add(this.Profilo);
+            this.Controls.Add(this.ViewSelectedBook);
             this.Controls.Add(this.prenotazione);
             this.Controls.Add(this.login);
+            this.Controls.Add(this.AddBooksAndUsers);
+            this.Controls.Add(this.ValutazioneEPrestiti);
+            this.Controls.Add(this.ModifyBookUser);
+            this.Controls.Add(this.Statistiche);
+            this.Controls.Add(this.visualizza_profilo);
             this.MaximizeBox = false;
             this.Name = "frm1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Libreria Gheller";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.tabPrincipale.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.tabComandi.ResumeLayout(false);
-            this.tabAccount.ResumeLayout(false);
             this.tbc.ResumeLayout(false);
             this.tbpUtenti.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwUtenti)).EndInit();
@@ -730,15 +964,14 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             ((System.ComponentModel.ISupportInitialize)(this.dgwLibri)).EndInit();
             this.tbpPrestiti.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwPrestiti)).EndInit();
+            this.tabPrincipale.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Login login;
-        private PrenotazioneLibro prenotazione;
-        private System.Windows.Forms.TableLayoutPanel tabPrincipale;
+        private ProfiloUtente Profilo;
+        private ViewBook ViewSelectedBook;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private FontAwesome.Sharp.IconButton btnFind;
@@ -748,14 +981,17 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
         private FontAwesome.Sharp.IconButton btnLibri;
         private FontAwesome.Sharp.IconButton btnUtenti;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tabComandi;
-        private FontAwesome.Sharp.IconButton btnRemovePrenota;
-        private FontAwesome.Sharp.IconButton btnPrenota;
-        private FontAwesome.Sharp.IconButton btnRemoveBook;
-        private FontAwesome.Sharp.IconButton btnRemoveUser;
-        private System.Windows.Forms.TableLayoutPanel tabAccount;
-        private FontAwesome.Sharp.IconButton btnLogout;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private FontAwesome.Sharp.IconButton btnStats;
+        private FontAwesome.Sharp.IconButton btnViewBook;
+        private FontAwesome.Sharp.IconButton btnLogOut;
         private FontAwesome.Sharp.IconButton btnViewUser;
+        private System.Windows.Forms.TableLayoutPanel tabComandi;
+        private FontAwesome.Sharp.IconButton btnModify;
+        private FontAwesome.Sharp.IconButton btnAdd;
+        private FontAwesome.Sharp.IconButton btnPrenota;
+        private FontAwesome.Sharp.IconButton btnRating;
+        private FontAwesome.Sharp.IconButton btnRemove;
         private System.Windows.Forms.TabControl tbc;
         private System.Windows.Forms.TabPage tbpUtenti;
         private System.Windows.Forms.DataGridView dgwUtenti;
@@ -764,6 +1000,7 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
         private System.Windows.Forms.DataGridViewTextBoxColumn columnEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnCity;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnBirth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnNLibri;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnPwd;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnRole;
@@ -785,6 +1022,16 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
         private System.Windows.Forms.DataGridViewTextBoxColumn columnDataInizio;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnDataFine;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnTempoMancante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnCodicePrestito;
+        private System.Windows.Forms.TableLayoutPanel tabPrincipale;
+        private GestionePresitiValuta ValutazioneEPrestiti;
+        private AddBookUser AddBooksAndUsers;
+        private Login login;
+        private PrenotazioneLibro prenotazione;
+        private Dashboard Statistiche;
+        private AddBookUser ModifyBookUser;
+        private ViewBook visualizza_libro;
+        private ProfiloUtente visualizza_profilo;
     }
 }
 

@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
 {
     public class Libro
     {
-        public Libro(string isbn, string title, string authors, string subtitle, string categories, string thumbnail, string description, double published_year, double average_rating, double num_pages, double ratings_count, double qta)
+        [JsonConstructor]
+        public Libro(string isbn, string title, string authors, string subtitle, string categories, string thumbnail, string description, double published_year, double average_rating, double num_pages, double ratings_count, double qta, double prestati, double prestiti_totali)
         {
             this.isbn = isbn;
             this.title = title;
@@ -22,20 +19,28 @@ namespace Joey_Gheller_4CII__Project_Work_Gestione_Libreria
             this.num_pages = num_pages;
             this.ratings_count = ratings_count;
             this.qta = qta;
+            this.prestati = prestati;
+            this.prestiti_totali = prestiti_totali;
         }
 
-        public string isbn {get; }
-        public string title {get; } 
-        public string authors {get; } 
-        public string subtitle {get; } 
-        public string categories {get; } 
-        public string thumbnail {get; } 
-        public string description {get; } 
-        public double published_year {get; }
-        public double average_rating {get; }
-        public double num_pages {get; }
-        public double ratings_count { get; }
-        public double qta {get; } 
+        public Libro()
+        {
 
+        }
+
+        public string isbn { get; }
+        public string title { get; }
+        public string authors { get; }
+        public string subtitle { get; }
+        public string categories { get; }
+        public string thumbnail { get; }
+        public string description { get; }
+        public double published_year { get; }
+        public double average_rating { get; set; }
+        public double num_pages { get; }
+        public double ratings_count { get; set; }
+        public double qta { get; set; }
+        public double prestati { get; set; }
+        public double prestiti_totali { get; set; }
     }
 }
